@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 /*
  * We've enabled UglifyJSPlugin for you! This minifies your app
  * in order to load faster and run less javascript.
@@ -28,7 +29,7 @@ module.exports = {
 
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist') //says global output goes to dist folder
 	},
 
 	module: {
@@ -66,5 +67,8 @@ module.exports = {
 							title: 'Darkcaster',
 							filename: 'index.html',
 							template: './src/index.html'
-						})] //take the file given and use instead of creating own file 
+						}),
+					  new CopyWebpackPlugin([
+							{from: './src/images', to: './images'}
+						])] //take the file given and use instead of creating own file
 };
