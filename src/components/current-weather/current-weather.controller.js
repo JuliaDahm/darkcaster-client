@@ -1,3 +1,5 @@
+const clearDay = require('../../images/clear-day.png');
+
 MainController.$inject = ['WeatherService'];
 //Angular looks up this service and uses it in the controller
 //we set this service name and functionality in the weather.service file
@@ -5,6 +7,9 @@ MainController.$inject = ['WeatherService'];
 //passing in the service to the controller action
 function MainController(weather){
   this.message = 'hello from angular';
+  this.imageLookup = {
+    'clear-day': clearDay
+  };
   this.weatherData = weather.getCurrently();
 
   //method label ......... = function name
