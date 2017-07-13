@@ -14,7 +14,7 @@ function WeatherService($http){
                 .then(response => { //response is a var name for whatever comes back from the get request
                   console.log(response);
                   return response.data.currently;
-                })
+                });
   }
 }
 //this whole function grabs the currently information for you then the parent function will return it

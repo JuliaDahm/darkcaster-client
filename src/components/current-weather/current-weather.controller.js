@@ -10,10 +10,15 @@ function MainController(weather){
   this.imageLookup = {
     'clear-day': clearDay
   };
-  this.weatherData = weather.getCurrently();
+
+  weather.getCurrently(29, -81)
+         .then(currentWeather => this.weatherData = currentWeather);
+
 
   //method label ......... = function name
+  //  this.weatherData = weather.getCurrently();
   //this is creating a variable for outputting the currently info to the dom
+
 }
 
 module.exports = MainController;
