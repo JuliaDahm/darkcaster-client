@@ -1,18 +1,24 @@
 const clearDay = require('../../images/clear-day.png');
 
-MainController.$inject = ['WeatherService'];
+CurrentWeatherController.$inject = ['WeatherService'];
 //Angular looks up this service and uses it in the controller
 //we set this service name and functionality in the weather.service file
 
 //passing in the service to the controller action
-function MainController(weather){
-  this.message = 'hello from angular';
+function CurrentWeatherController(weather){
+  this.lat = 0;
+  this.lon = 0;
   this.imageLookup = {
     'clear-day': clearDay
   };
 
-  weather.getCurrently(29, -81)
-         .then(currentWeather => this.weatherData = currentWeather);
+  //functions
+  this.search = function search(){
+    weather.getCurrently(this.lat, this.lon)
+           .then(currentWeather => this.weatherData = currentWeather);
+  };
+
+
 
 
   //method label ......... = function name
@@ -21,5 +27,8 @@ function MainController(weather){
 
 }
 
-module.exports = MainController;
+//functions sitting losely in controller are automatically rendered on page load
+//but place inside another function will not
+
+module.exports = CurrentWeatherController;
 //makes this usable/not private/searchable by node/accesible functionality

@@ -5,12 +5,9 @@ const WeatherService = require('./services/weather.service');
 // period says start in this directory, not at root
 
 //components
-const CurrentWeatherComponent = require('./components/current-weather/index');
+const CurrentWeatherComponent = require('./components/current-weather/');
 
 //create our application
-angular.module('darkcaster-client', []); //setter syntax, so we're setting the module name as darkcaster-client
-
-angular.module('darkcaster-client') //getter syntax is w/out comma and brackets, works like 'require'
+angular.module('darkcaster-client', []) //getter syntax is w/out comma and brackets, works like 'require'
        .factory('WeatherService', WeatherService) //inside angular, create HTML tag with this name
        .component('currentWeather', CurrentWeatherComponent)//second argument is the function it will use
-       
