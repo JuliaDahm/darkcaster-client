@@ -6,7 +6,7 @@ const WeatherService = require('./services/weather.service');
 
 //components
 const CurrentWeatherComponent = require('./components/current-weather/');
-const HourlyWeatherComponent = require('./compenents/hourly-weather/');
+const HourlyWeatherComponent = require('./components/hourly-weather/');
 //create our application
 angular.module('darkcaster-client', []) //getter syntax is w/out comma and brackets, works like 'require'
        .factory('WeatherService', WeatherService) //inside angular, create HTML tag with this name
