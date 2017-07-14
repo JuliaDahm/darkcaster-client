@@ -18,7 +18,7 @@ function WeatherService($http){
                   return response.data.currently;
                 });
   }
-  function getHourlyFunction(){
+  function getHourlyFunction(lat, lon){
     const url = `${baseUrl}${lat},${lon}`;
     return $http.get(url)
                     .then(response => {
