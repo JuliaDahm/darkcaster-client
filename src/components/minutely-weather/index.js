@@ -1,5 +1,5 @@
-const htmlTemplate = './minutely-weather.html';
-const minuteController ='./minutely-weather.controller.js';
+const htmlTemplate = require('./minutely-weather.html');
+const minuteController = require('./minutely-weather.controller.js');
 
 
 const MinutelyWeatherComponent =  {

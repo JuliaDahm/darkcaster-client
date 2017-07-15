@@ -8,7 +8,8 @@ function WeatherService($http){
   return {
     //method label     :   function name
     getCurrently: getCurrentlyFunction, //giving the label getCurrently the function getCurrentlyFunction
-    getHourly: getHourlyFunction
+    getHourly: getHourlyFunction,
+    getMinutely: getMinutelyFunction
   }
   function getCurrentlyFunction(lat, lon){
     const url = `${baseUrl}${lat},${lon}`;
@@ -25,6 +26,14 @@ function WeatherService($http){
                       console.log(response);
                       return response.data.hourly;
                     });
+  }
+  function getMinutelyFunction(lat, lon){
+    const url = `${baseUrl}${lat},${lon}`;
+    return $http.get(url)
+                .then(response => {
+                  console.log(response);
+                  return response.data.minutely;
+                });
   }
 }
 //this whole function grabs the currently information for you then the parent function will return it
