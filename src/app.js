@@ -7,8 +7,10 @@ const WeatherService = require('./services/weather.service');
 //components
 const CurrentWeatherComponent = require('./components/current-weather/');
 const HourlyWeatherComponent = require('./components/hourly-weather/');
+const MinutelyWeatherComponent = require('./components/minutely-weather');
 //create our application
 angular.module('darkcaster-client', []) //getter syntax is w/out comma and brackets, works like 'require'
        .factory('WeatherService', WeatherService) //inside angular, create HTML tag with this name
        .component('currentWeather', CurrentWeatherComponent)//second argument is the function it will use
-       .component('hourlyWeather', HourlyWeatherComponent);
+       .component('hourlyWeather', HourlyWeatherComponent)
+       .component('minutelyWeather', MinutelyWeatherComponent);
