@@ -15,24 +15,29 @@
     <button type='button' ng-click='$ctrl.search()'>Search</button>
   </div>
 </section>
-<section ng-if='$ctrl.weatherData'>
+<section ng-if='$ctrl.hourlyWeather'>
 <!-- ng-if says if this data is available, if not do not show -->
-  <header>
-    <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number: 2 }}%</p>
-      <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] || $ctrl.missingImage }}"/>
-      <p>{{ $ctrl.weatherData.time * 1000 | date: 'short'}}</p>
-      <!-- Gives you the time the data was gathered, could be the day before ex. -->
-  </header>
-  <main>
-    <h1>Humidity: {{ $ctrl.weatherData.humidity * 100 | number: 0 }}%</h1>
-    <div>
-      <h1>Temperature: {{ $ctrl.weatherData.temperature | number: 0 }}&deg;F</h1>
-      <h2>Real Feel: {{ $ctrl.weatherData.apparentTemperature | number: 0 }}&deg;F</h2>
-    </div>
-    <h1>UV Index: {{$ctrl.weatherData.uvIndex }}</h1>
-  </main>
-  <footer>
-    <h1>Summary: {{ $ctrl.weatherData.summary }}</h1>
-  </footer>
+  <ul>
+    <li ng-repeat='hour in $ctrl.hourlyWeather.data'>
+      <header>
+        <!-- <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number: 2 }}%</p> -->
+          <img ng-src="{{ $ctrl.imageLookup[hour.icon] || $ctrl.missingImage }}"/>
+          <p>{{ hour.time * 1000 | date: 'short'}}</p>
+          <!-- Gives you the time the data was gathered, could be the day before ex. -->
+      </header>
+      <main>
+        <h1>Humidity: {{ hour.humidity * 100 | number: 0 }}%</h1>
+        <div>
+          <h1>Temperature: {{ hour.temperature | number: 0 }}&deg;F</h1>
+          <h2>Real Feel: {{ hour.apparentTemperature | number: 0 }}&deg;F</h2>
+        </div>
+        <h1>UV Index: {{hour.uvIndex }}</h1>
+      </main>
+      <footer>
+        <h1>Summary: {{ hour.summary }}</h1>
+      </footer>
+      <hr />
+    </li>
+  </ul>
 </section>
-<pre>{{ $ctrl.weatherData | json }}</pre>
+<!-- <pre>{{ $ctrl.weatherData | json }}</pre> -->

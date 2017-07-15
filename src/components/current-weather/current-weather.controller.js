@@ -1,4 +1,5 @@
 const clearDay = require('../../images/clear-day.png');
+const missingImage = require('../../images/missing-image.png');
 
 CurrentWeatherController.$inject = ['WeatherService'];
 //Angular looks up this service and uses it in the controller
@@ -9,7 +10,8 @@ function CurrentWeatherController(weather){
   this.lat = 0;
   this.lon = 0;
   this.imageLookup = {
-    'clear-day': clearDay
+    'clear-day': clearDay,
+    'missing-image': missingImage
   };
 
   //functions

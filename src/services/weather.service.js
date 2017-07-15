@@ -23,7 +23,7 @@ function WeatherService($http){
     return $http.get(url)
                     .then(response => {
                       console.log(response);
-                      return response.data.hourly.data;
+                      return response.data.hourly;
                     });
   }
 }
