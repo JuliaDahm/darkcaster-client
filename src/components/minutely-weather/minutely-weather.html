@@ -1,0 +1,43 @@
+<section>
+  <h1>Minutely Weather</h1>
+  <div>
+    <label>Latitude:</label>
+    <input type='number' ng-model='$ctrl.lat' />
+    <!-- model provides binding from input to controller -->
+    <!-- $ctr.lat is an angular dom object, ctrl = controller -->
+    <!-- inside class curly braces not needed -->
+  </div>
+  <div>
+    <label>Longitude:</label>
+    <input type='number' ng-model='$ctrl.lon' />
+  </div>
+  <div>
+    <button type='button' ng-click='$ctrl.search()'>Search</button>
+  </div>
+</section>
+<section ng-if='$ctrl.minutelyWeather'>
+<!-- ng-if says if this data is available, if not do not show -->
+  <ul>
+    <li ng-repeat='minute in $ctrl.minutelyWeather.data'>
+      <header>
+        <!-- <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number: 2 }}%</p> -->
+          <img ng-src="{{ $ctrl.imageLookup[minute.icon] || $ctrl.missingImage }}"/>
+          <p>{{ minute.time * 1000 | date: 'short'}}</p>
+          <!-- Gives you the time the data was gathered, could be the day before ex. -->
+      </header>
+      <main>
+        <h1>Humidity: {{ minute.humidity * 100 | number: 0 }}%</h1>
+        <div>
+          <h1>Temperature: {{ minute.temperature | number: 0 }}&deg;F</h1>
+          <h2>Real Feel: {{ minute.apparentTemperature | number: 0 }}&deg;F</h2>
+        </div>
+        <h1>UV Index: {{minute.uvIndex }}</h1>
+      </main>
+      <footer>
+        <h1>Summary: {{ minute.summary }}</h1>
+      </footer>
+      <hr />
+    </li>
+  </ul>
+</section>
+<!-- <pre>{{ $ctrl.weatherData | json }}</pre> -->
