@@ -1,15 +1,10 @@
-const missingImage = require('../../images/missing-image.png');
-const clearDay = require('../../images/clear-day.png');
+MinutelyWeatherController.$inject = ['WeatherService', 'images'];
 
-MinutelyWeatherController.$inject = ['WeatherService'];
-
-function MinutelyWeatherController(weather){
+function MinutelyWeatherController(weather, images){
   this.lat = 0;
   this.lon = 0;
-  this.imageLookup = {
-    'clear-day': clearDay,
-    'missing-image': missingImage
-  }
+  this.imageLookup = images.lookup;
+  this.missingImage = images.missing;
 
   //functions
   this.search = function search(){
