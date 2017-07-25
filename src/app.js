@@ -11,6 +11,8 @@ const HourlyWeatherComponent = require('./components/hourly-weather/');
 const MinutelyWeatherComponent = require('./components/minutely-weather');
 const DailyWeatherComponent = require('./components/daily-weather');
 const SearchComponent = require('./components/search-component');
+const MainAppComponent = require('./components/main-app');
+
 //create our application
 angular.module('darkcaster-client', []) //getter syntax is w/out comma and brackets, works like 'require'
        .factory('WeatherService', WeatherService) //inside angular, create HTML tag with this name
@@ -19,4 +21,5 @@ angular.module('darkcaster-client', []) //getter syntax is w/out comma and brack
        .component('hourlyWeather', HourlyWeatherComponent)
        .component('minutelyWeather', MinutelyWeatherComponent)
        .component('searchComponent', SearchComponent)
-       .component('dailyWeather', DailyWeatherComponent);
+       .component('dailyWeather', DailyWeatherComponent)
+       .component('mainApp', MainAppComponent);
