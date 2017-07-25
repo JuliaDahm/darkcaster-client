@@ -5,7 +5,9 @@ const SearchComponent = {
   template,
   controller,
   bindings: {
-    search: '&'
+    search: '&',
+    lat: '=',
+    lon: '='
   }
 };
 
