@@ -1,7 +1,7 @@
-<section ng-if='$ctrl.dailyWeather'>
+<section ng-if='$ctrl.weather'>
 <!-- ng-if says if this data is available, if not do not show -->
   <ul>
-    <li ng-repeat='day in $ctrl.dailyWeather.data'>
+    <li ng-repeat='day in $ctrl.weather.data'>
       <header>
         <!-- <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number: 2 }}%</p> -->
           <img ng-src="{{ $ctrl.imageLookup[day.icon] || $ctrl.missingImage }}"/>

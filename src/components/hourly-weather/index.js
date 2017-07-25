@@ -1,9 +1,12 @@
-const htmlTemplate = require('./hourly-weather.html');
-const hourlyController = require('./hourly-weather.controller.js');
+const template = require('./hourly-weather.html');
+const controller = require('./hourly-weather.controller.js');
 
 const HourlyWeatherComponent = {
-  template: htmlTemplate,
-  controller: hourlyController
+  template,
+  controller,
+  bindings: {
+    weather: '<'
+  }
 };
 
 module.exports = HourlyWeatherComponent;

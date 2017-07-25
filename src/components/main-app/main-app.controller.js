@@ -6,7 +6,6 @@ function MainAppController(weather){
   this.search = search;
 
   function search(){
-    console.log('searching...');
     weather.getAll(this.lat, this.lon)
            .this(weatherData => this.weatherData = weatherData);
   }

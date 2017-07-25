@@ -1,22 +1,22 @@
-<section ng-if='$ctrl.weatherData'>
+<section ng-if='$ctrl.weather'>
 <!-- ng-if says if this data is available, if not do not show -->
   <header>
-    <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number: 2 }}%</p>
-      <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] || $ctrl.missingImage }}"/>
-      <p>{{ $ctrl.weatherData.time * 1000 | date: 'short'}}</p>
+    <p>Precipitation Probability: {{ $ctrl.weather.precipProbability * 100 | number: 2 }}%</p>
+      <img ng-src="{{ $ctrl.imageLookup[$ctrl.weather.icon] || $ctrl.missingImage }}"/>
+      <p>{{ $ctrl.weather.time * 1000 | date: 'short'}}</p>
       <!-- Gives you the time the data was gathered, could be the day before ex. -->
   </header>
   <main>
-    <h1>Humidity: {{ $ctrl.weatherData.humidity * 100 | number: 0 }}%</h1>
+    <h1>Humidity: {{ $ctrl.weather.humidity * 100 | number: 0 }}%</h1>
     <div>
-      <h1>Temperature: {{ $ctrl.weatherData.temperature | number: 0 }}&deg;F</h1>
-      <h2>Real Feel: {{ $ctrl.weatherData.apparentTemperature | number: 0 }}&deg;F</h2>
+      <h1>Temperature: {{ $ctrl.weather.temperature | number: 0 }}&deg;F</h1>
+      <h2>Real Feel: {{ $ctrl.weather.apparentTemperature | number: 0 }}&deg;F</h2>
     </div>
-    <h1>UV Index: {{$ctrl.weatherData.uvIndex }}</h1>
+    <h1>UV Index: {{$ctrl.weather.uvIndex }}</h1>
   </main>
   <footer>
-    <h1>Summary: {{ $ctrl.weatherData.summary }}</h1>
+    <h1>Summary: {{ $ctrl.weather.summary }}</h1>
   </footer>
 </section>
-<!-- <pre>{{ $ctrl.weatherData | json }}</pre> -->
+<!-- <pre>{{ $ctrl.weather | json }}</pre> -->
 <!-- this would allow the json object to be shown on the page -->
