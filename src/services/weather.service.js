@@ -7,10 +7,19 @@ function WeatherService($http){
   //variable must be defined before returned or it will return before using this
   return {
     //method label     :   function name
+    getAll: getAllFunction,
     getCurrently: getCurrentlyFunction, //giving the label getCurrently the function getCurrentlyFunction
     getHourly: getHourlyFunction,
     getMinutely: getMinutelyFunction,
     getDaily: getDailyFunction
+  };
+  function getAllFunction(lat, lon){
+    const url = `${baseUrl}${lat},${lon}`;
+    return $http.get(url)
+                .then(response => {
+                  console.log(response);
+                  return response.data;
+                });
   }
   function getCurrentlyFunction(lat, lon){
     const url = `${baseUrl}${lat},${lon}`;
